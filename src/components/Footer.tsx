@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { MapPin, Phone, Printer } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -36,7 +36,7 @@ export default function Footer() {
             }}
           >
             <Image
-              src="/images/logo.jpg"
+              src="/image.png"
               alt="York Condominium Corporation 76"
               width={160}
               height={41}
@@ -93,20 +93,6 @@ export default function Footer() {
             <span>Phone: +1 416 690 8881</span>
           </a>
 
-          <span style={{ color: "var(--border-medium)" }}>•</span>
-
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              color: "var(--text-secondary)",
-              fontWeight: 500,
-            }}
-          >
-            <Printer size={16} color="var(--gold-400)" />
-            <span>Fax: +1 416 690 1222</span>
-          </span>
         </div>
       </div>
     </footer>

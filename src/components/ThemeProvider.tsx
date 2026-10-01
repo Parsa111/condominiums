@@ -24,8 +24,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
   // On mount, read saved preference
   useEffect(() => {
-    const saved = localStorage.getItem("ycc76-theme") as Theme | null;
-    const preferred = saved ?? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    const saved = localStorage.getItem("ycc76-theme-choice") as Theme | null;
+    const preferred = saved ?? "dark";
     setTheme(preferred);
     setMounted(true);
   }, []);
@@ -39,7 +39,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     } else {
       html.classList.remove("light");
     }
-    localStorage.setItem("ycc76-theme", theme);
+    localStorage.setItem("ycc76-theme-choice", theme);
   }, [theme, mounted]);
 
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

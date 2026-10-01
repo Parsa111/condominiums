@@ -10,7 +10,7 @@ import {
   PhoneCall,
   // FileText, // TEMPORARILY DISABLED (used by "Supporting Documents" link)
   // Bell,     // TEMPORARILY DISABLED (used by "Notices" link)
-  // Info,     // TEMPORARILY DISABLED (used by "About Us" link)
+  Info,
   Home,
   ChevronRight,
   Sun,
@@ -37,13 +37,10 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  // Only the Home page is shown for now.
-  // The other pages are NOT removed - their code is kept and only commented out,
-  // so they can be re-enabled later by un-commenting the lines below
-  // (and their icon imports at the top of this file).
+  // Shared by desktop navigation and the mobile drawer.
   const navLinks = [
     { name: "Home", href: "/", icon: Home },
-    // { name: "About Us", href: "/about", icon: Info },
+    { name: "About Us", href: "/about", icon: Info },
     // { name: "Supporting Documents", href: "/documents", icon: FileText },
     // { name: "Notices", href: "/notices", icon: Bell },
     // { name: "Contact Us", href: "/contact", icon: PhoneCall },
@@ -161,7 +158,7 @@ export default function Navbar() {
               }}
             >
               <Image
-                src="/images/logo.jpg"
+                src="/image.png"
                 alt="York Condominium Corporation 76"
                 width={160}
                 height={41}
