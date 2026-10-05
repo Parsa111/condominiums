@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -24,6 +24,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
 
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -37,6 +39,27 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Close drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [closeMenu]);
+
   // Shared by desktop navigation and the mobile drawer.
   const navLinks = [
     { name: "Home", href: "/", icon: Home },
@@ -47,26 +70,27 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        transition: "all 0.3s ease",
-        background: theme === "light"
-          ? "rgba(244, 246, 251, 0.97)"
-          : scrolled
-          ? "rgba(9, 13, 22, 0.92)"
-          : "rgba(9, 13, 22, 0.75)",
-        backdropFilter: "blur(18px)",
-        borderBottom: theme === "light"
-          ? "1px solid rgba(0, 0, 0, 0.10)"
-          : `1px solid ${scrolled ? "rgba(212, 175, 55, 0.2)" : "rgba(255, 255, 255, 0.08)"}`,
-        boxShadow: theme === "light"
-          ? "0 4px 20px rgba(0, 0, 0, 0.07)"
-          : scrolled ? "0 10px 30px rgba(0, 0, 0, 0.45)" : "none",
-      }}
-    >
+    <>
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          transition: "all 0.3s ease",
+          background: theme === "light"
+            ? "rgba(244, 246, 251, 0.97)"
+            : scrolled
+            ? "rgba(9, 13, 22, 0.92)"
+            : "rgba(9, 13, 22, 0.75)",
+          backdropFilter: "blur(18px)",
+          borderBottom: theme === "light"
+            ? "1px solid rgba(0, 0, 0, 0.10)"
+            : `1px solid ${scrolled ? "rgba(212, 175, 55, 0.2)" : "rgba(255, 255, 255, 0.08)"}`,
+          boxShadow: theme === "light"
+            ? "0 4px 20px rgba(0, 0, 0, 0.07)"
+            : scrolled ? "0 10px 30px rgba(0, 0, 0, 0.45)" : "none",
+        }}
+      >
       {/* Top micro utility bar */}
       <div
         style={{
@@ -109,7 +133,7 @@ export default function Navbar() {
 
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <a
-              href="tel:+14166908881"
+              href="tel:4166908881"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -119,10 +143,10 @@ export default function Navbar() {
               }}
             >
               <PhoneCall size={13} />
-              <span>Office: +1 416 690 8881</span>
+              <span>Office: (416)  690 8881</span>
             </a>
             <span style={{ color: "var(--text-faint)" }}>|</span>
-            <span style={{ color: "var(--text-muted)" }}>5 Massey Sq, Toronto</span>
+            <span style={{ color: "var(--text-muted)" }}>5 Massey Square | Toronto, ON | M4C 5L6</span>
           </div>
         </div>
       </div>
@@ -253,8 +277,9 @@ export default function Navbar() {
 
             {/* Mobile Hamburger Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((prev) => !prev)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -265,6 +290,8 @@ export default function Navbar() {
                 background: "rgba(255, 255, 255, 0.06)",
                 border: "1px solid var(--border-medium)",
                 color: "var(--text-main)",
+                touchAction: "manipulation",
+                WebkitTapHighlightColor: "transparent",
               }}
               className="mobile-toggle"
             >
@@ -273,108 +300,121 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: "105px",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: "rgba(9, 13, 22, 0.98)",
-            backdropFilter: "blur(20px)",
-            padding: "24px 20px 40px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            zIndex: 99,
-            overflowY: "auto",
-            borderTop: "1px solid var(--border-subtle)",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div
-              style={{
-                fontSize: "0.75rem",
-                color: "var(--gold-400)",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                fontWeight: 700,
-                marginBottom: "8px",
-                paddingLeft: "8px",
-              }}
-            >
-              Navigation Menu
-            </div>
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "14px 18px",
-                    borderRadius: "12px",
-                    background: isActive
-                      ? "rgba(212, 175, 55, 0.12)"
-                      : "rgba(255, 255, 255, 0.03)",
-                    border: `1px solid ${isActive ? "rgba(212, 175, 55, 0.35)" : "var(--border-subtle)"}`,
-                    color: isActive ? "var(--gold-300)" : "var(--text-main)",
-                    fontWeight: 600,
-                    fontSize: "1.05rem",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <Icon size={19} color={isActive ? "var(--gold-400)" : "var(--text-muted)"} />
-                    <span>{link.name}</span>
-                  </div>
-                  <ChevronRight size={18} color="var(--text-muted)" />
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Mobile Bottom Quick Actions */}
+    {/* Mobile Drawer */}
+    {isOpen && (
+        <>
+          <div
+            onClick={closeMenu}
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "rgba(0, 0, 0, 0.6)",
+              zIndex: 100,
+            }}
+          />
           <div
             style={{
-              marginTop: "30px",
+              position: "fixed",
+              top: "105px",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "rgba(9, 13, 22, 0.98)",
+              backdropFilter: "blur(20px)",
+              padding: "24px 20px 40px",
               display: "flex",
               flexDirection: "column",
-              gap: "12px",
+              justifyContent: "space-between",
+              zIndex: 101,
+              overflowY: "auto",
               borderTop: "1px solid var(--border-subtle)",
-              paddingTop: "24px",
             }}
           >
-            <a
-              href="tel:+14166908881"
-              className="btn btn-outline-gold"
-              style={{ width: "100%", padding: "14px" }}
-            >
-              <PhoneCall size={16} />
-              <span>Call Office: +1 416 690 8881</span>
-            </a>
-            {/* TEMPORARILY DISABLED: points to the Contact page, which is hidden for now.
-                Kept (commented) so it can be re-enabled later.
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div
+                style={{
+                  fontSize: "0.75rem",
+                  color: "var(--gold-400)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  marginBottom: "8px",
+                  paddingLeft: "8px",
+                }}
+              >
+                Navigation Menu
+              </div>
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={closeMenu}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "14px 18px",
+                      borderRadius: "12px",
+                      background: isActive
+                        ? "rgba(212, 175, 55, 0.12)"
+                        : "rgba(255, 255, 255, 0.03)",
+                      border: `1px solid ${isActive ? "rgba(212, 175, 55, 0.35)" : "var(--border-subtle)"}`,
+                      color: isActive ? "var(--gold-300)" : "var(--text-main)",
+                      fontWeight: 600,
+                      fontSize: "1.05rem",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <Icon size={19} color={isActive ? "var(--gold-400)" : "var(--text-muted)"} />
+                      <span>{link.name}</span>
+                    </div>
+                    <ChevronRight size={18} color="var(--text-muted)" />
+                  </Link>
+                );
+              })}
+            </div>
 
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="btn btn-primary"
-              style={{ width: "100%", padding: "14px" }}
+            {/* Mobile Bottom Quick Actions */}
+            <div
+              style={{
+                marginTop: "30px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                borderTop: "1px solid var(--border-subtle)",
+                paddingTop: "24px",
+              }}
             >
-              <PhoneCall size={17} />
-              <span>Condo Directory &amp; Contacts</span>
-            </Link>
-            */}
+              <a
+                href="tel:4166908881"
+                className="btn btn-outline-gold"
+                style={{ width: "100%", padding: "14px" }}
+                onClick={closeMenu}
+              >
+                <PhoneCall size={16} />
+                <span>Call Office: (416)  690 8881</span>
+              </a>
+              {/* TEMPORARILY DISABLED: points to the Contact page, which is hidden for now.
+                  Kept (commented) so it can be re-enabled later.
+
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="btn btn-primary"
+                style={{ width: "100%", padding: "14px" }}
+              >
+                <PhoneCall size={17} />
+                <span>Condo Directory &amp; Contacts</span>
+              </Link>
+              */}
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Responsive CSS styling */}
@@ -388,7 +428,12 @@ export default function Navbar() {
             display: none !important;
           }
         }
-      `}</style>
-    </header>
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}      </style>
+    </>
   );
 }

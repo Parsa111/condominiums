@@ -355,11 +355,11 @@
 //                 Buying or Selling a Suite in YCC76? Request a Status Certificate
 //               </h3>
 //               <p style={{ fontSize: "0.92rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-//                 Under the Condominium Act, 1998, status certificates containing the complete legal and financial profile of York Condominium Corporation No. 76 can be requested through property management at 5 Massey Square.
+//                 Under the Condominium Act, 1998, status certificates containing the complete legal and financial profile of York Condominium Corporation No. 76 can be requested through property management at 5 Massey Square | Toronto, ON | M4C 5L6
 //               </p>
 //             </div>
 //             <a
-//               href="tel:+14166908881"
+//               href="tel:4166908881"
 //               className="btn btn-primary"
 //               style={{ padding: "12px 24px" }}
 //             >

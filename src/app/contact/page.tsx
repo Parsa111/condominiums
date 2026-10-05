@@ -192,19 +192,19 @@
 //                 <div style={{ display: "flex", flexDirection: "column", gap: "14px", marginTop: "20px" }}>
 //                   <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", color: "var(--text-secondary)", fontSize: "0.95rem" }}>
 //                     <MapPin size={18} color="var(--gold-400)" style={{ flexShrink: 0, marginTop: "2px" }} />
-//                     <span>5 Massey Square, Toronto, ON M4C 5L6</span>
+//                     <span>5 Massey Square | Toronto, ON | M4C 5L6</span>
 //                   </div>
 // 
 //                   <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "var(--text-secondary)", fontSize: "0.95rem" }}>
 //                     <PhoneCall size={18} color="var(--gold-400)" style={{ flexShrink: 0 }} />
-//                     <a href="tel:+14166908881" style={{ color: "var(--gold-300)", fontWeight: 600 }}>
-//                       +1 416 690 8881
+//                     <a href="tel:4166908881" style={{ color: "var(--gold-300)", fontWeight: 600 }}>
+//                       (416)  690 8881
 //                     </a>
 //                   </div>
 // 
 //                   <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "var(--text-secondary)", fontSize: "0.95rem" }}>
 //                     <Printer size={18} color="var(--gold-400)" style={{ flexShrink: 0 }} />
-//                     <span>Fax: +1 416 690 1222</span>
+//                     <span>Fax: (416)  690 1222</span>
 //                   </div>
 // 
 //                   <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", color: "var(--text-secondary)", fontSize: "0.95rem" }}>

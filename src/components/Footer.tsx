@@ -63,7 +63,7 @@ export default function Footer() {
           }}
         >
           <MapPin size={18} color="var(--gold-400)" style={{ flexShrink: 0 }} />
-          <span>5 Massey Square, Toronto, ON M4C 5L6</span>
+          <span>5 Massey Square | Toronto, ON | M4C 5L6</span>
         </div>
 
         {/* Contact Numbers */}
@@ -79,7 +79,7 @@ export default function Footer() {
           }}
         >
           <a
-            href="tel:+14166908881"
+            href="tel:4166908881"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -90,7 +90,7 @@ export default function Footer() {
             }}
           >
             <Phone size={16} color="var(--gold-400)" />
-            <span>Phone: +1 416 690 8881</span>
+            <span>Phone: (416)  690 8881</span>
           </a>
 
         </div>
