@@ -8,7 +8,7 @@ import {
   Menu,
   X,
   PhoneCall,
-  // FileText, // TEMPORARILY DISABLED (used by "Supporting Documents" link)
+  FileText,
   // Bell,     // TEMPORARILY DISABLED (used by "Notices" link)
   Info,
   Home,
@@ -62,11 +62,11 @@ export default function Navbar() {
 
   // Shared by desktop navigation and the mobile drawer.
   const navLinks = [
-    { name: "Home", href: "/", icon: Home },
-    { name: "About Us", href: "/about", icon: Info },
-    // { name: "Supporting Documents", href: "/documents", icon: FileText },
-    // { name: "Notices", href: "/notices", icon: Bell },
-    // { name: "Contact Us", href: "/contact", icon: PhoneCall },
+  { name: "Home", href: "/", icon: Home },
+  { name: "About Us", href: "/about", icon: Info },
+  { name: "Supporting Documents", href: "/documents", icon: FileText },
+  // { name: "Notices", href: "/notices", icon: Bell },
+  // { name: "Contact Us", href: "/contact", icon: PhoneCall },
   ];
 
   return (

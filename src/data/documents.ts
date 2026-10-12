@@ -3,7 +3,6 @@ export interface SupportingDocument {
   title: string;
   category: "YCC76 By Laws" | "YCC76 Declaration";
   description: string;
-  fileSize: string;
   fileFormat: "PDF";
   dateUpdated: string;
   isImportant?: boolean;
@@ -18,7 +17,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 5",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 5 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "1.0 MB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: true,
@@ -30,7 +28,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 6",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 6 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "429 KB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: false,
@@ -42,7 +39,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 9",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 9 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "293 KB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: false,
@@ -54,7 +50,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 10",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 10 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "749 KB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: false,
@@ -66,7 +61,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 11",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 11 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "409 KB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: false,
@@ -78,7 +72,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 By-Law No. 12",
     category: "YCC76 By Laws",
     description: "Official By-Law No. 12 of York Condominium Corporation No. 76 — Crescent Town.",
-    fileSize: "150 KB",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
     isImportant: false,
@@ -92,7 +85,6 @@ export const documentsData: SupportingDocument[] = [
     title: "YCC76 Declaration",
     category: "YCC76 Declaration",
     description: "The registered Condominium Declaration of York Condominium Corporation No. 76, filed with the Ontario Land Registry Office.",
-    fileSize: "2.1 MB",
     fileFormat: "PDF",
     dateUpdated: "Registered Land Registry Document",
     isImportant: true,

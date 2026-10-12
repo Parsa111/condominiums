@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { X, Download, FileText, Shield, Calendar, HardDrive } from "lucide-react";
+import { X, Download, FileText, Shield, Calendar } from "lucide-react";
 import { SupportingDocument } from "@/data/documents";
 
 interface DocumentModalProps {
@@ -117,9 +117,6 @@ export default function DocumentModal({ document, onClose }: DocumentModalProps)
               flexWrap: "wrap",
             }}
           >
-            <span style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-              <HardDrive size={13} color="var(--gold-400)" /> {document.fileSize}
-            </span>
             <span style={{ color: "var(--border-medium)" }}>•</span>
             <span style={{ display: "flex", alignItems: "center", gap: "5px" }}>
               <Calendar size={13} color="var(--gold-400)" /> {document.dateUpdated}
