@@ -15,7 +15,7 @@
 // import { Bell } from "lucide-react";
 // 
 // export const metadata = {
-//   title: "Notices | YCC76 Crescent Town",
+//   title: "Notices | YCC 76 Crescent Town",
 //   description: "Official notices for York Condominium Corporation No. 76.",
 // };
 // 

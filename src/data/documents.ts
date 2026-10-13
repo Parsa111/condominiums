@@ -1,7 +1,7 @@
 export interface SupportingDocument {
   id: string;
   title: string;
-  category: "YCC76 By Laws" | "YCC76 Declaration";
+  category: "YCC 76 By Laws" | "YCC 76 Declaration";
   description: string;
   fileFormat: "PDF";
   dateUpdated: string;
@@ -11,11 +11,11 @@ export interface SupportingDocument {
 }
 
 export const documentsData: SupportingDocument[] = [
-  // ─── YCC76 By Laws ───
+  // ─── YCC 76 By Laws ───
   {
     id: "bylaw-5",
-    title: "YCC76 By-Law No. 5",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 5",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 5 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -25,8 +25,8 @@ export const documentsData: SupportingDocument[] = [
   },
   {
     id: "bylaw-6",
-    title: "YCC76 By-Law No. 6",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 6",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 6 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -36,8 +36,8 @@ export const documentsData: SupportingDocument[] = [
   },
   {
     id: "bylaw-9",
-    title: "YCC76 By-Law No. 9",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 9",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 9 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -47,8 +47,8 @@ export const documentsData: SupportingDocument[] = [
   },
   {
     id: "bylaw-10",
-    title: "YCC76 By-Law No. 10",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 10",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 10 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -58,8 +58,8 @@ export const documentsData: SupportingDocument[] = [
   },
   {
     id: "bylaw-11",
-    title: "YCC76 By-Law No. 11",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 11",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 11 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -69,8 +69,8 @@ export const documentsData: SupportingDocument[] = [
   },
   {
     id: "bylaw-12",
-    title: "YCC76 By-Law No. 12",
-    category: "YCC76 By Laws",
+    title: "YCC 76 By-Law No. 12",
+    category: "YCC 76 By Laws",
     description: "Official By-Law No. 12 of York Condominium Corporation No. 76 — Crescent Town.",
     fileFormat: "PDF",
     dateUpdated: "Registered — Current Edition",
@@ -79,11 +79,11 @@ export const documentsData: SupportingDocument[] = [
     fileName: "YCC76_Bylaw_12.pdf",
   },
 
-  // ─── YCC76 Declaration ───
+  // ─── YCC 76 Declaration ───
   {
     id: "decl-1",
-    title: "YCC76 Declaration",
-    category: "YCC76 Declaration",
+    title: "YCC 76 Declaration",
+    category: "YCC 76 Declaration",
     description: "The registered Condominium Declaration of York Condominium Corporation No. 76, filed with the Ontario Land Registry Office.",
     fileFormat: "PDF",
     dateUpdated: "Registered Land Registry Document",

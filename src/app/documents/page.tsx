@@ -15,8 +15,8 @@ import DocumentModal from "@/components/DocumentModal";
 
 const categories = [
   "All Documents",
-  "YCC76 By Laws",
-  "YCC76 Declaration",
+  "YCC 76 By Laws",
+  "YCC 76 Declaration",
 ] as const;
 
 export default function DocumentsPage() {
@@ -60,7 +60,7 @@ export default function DocumentsPage() {
           <span className="section-subtitle">York Condominium Corporation No. 76</span>
           <h1 className="section-title">Supporting Documents & By-Laws</h1>
           <p className="section-desc">
-            Access certified, downloadable PDF copies of the official YCC76 By-Laws and YCC76 Condominium Declaration.
+            Access certified, downloadable PDF copies of the official YCC 76 By-Laws and YCC 76 Condominium Declaration.
           </p>
         </div>
       </section>

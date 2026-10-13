@@ -4,14 +4,14 @@ import Image from "next/image";
 import { Building2, Sparkles, BookOpen } from "lucide-react"; // ArrowRight TEMPORARILY DISABLED (only used by the "About Us" button below)
 
 export const metadata = {
-  title: "Welcome to YCC76 | Crescent Town Condominium Corporation",
-  description: "Welcome to YCC76 - One of the largest condominiums in Canada with 1,420 units in 6 buildings.",
+  title: "Welcome to YCC 76 | Crescent Town Condominium Corporation",
+  description: "Welcome to YCC 76 - One of the largest condominiums in Canada with 1,420 units in 6 buildings.",
 };
 
 export default function HomePage() {
   return (
     <div style={{ position: "relative", overflow: "hidden", minHeight: "80vh" }}>
-      {/* 1. HERO SECTION: Welcome to YCC76 with 1.png beside it */}
+      {/* 1. HERO SECTION: Welcome to YCC 76 with 1.png beside it */}
       <section
         style={{
           position: "relative",
@@ -67,7 +67,7 @@ export default function HomePage() {
                   textShadow: "0 4px 24px rgba(0, 0, 0, 0.7)",
                 }}
               >
-                Welcome to <span className="gradient-text-gold">YCC76</span>
+                Welcome to <span className="gradient-text-gold">YCC 76</span>
               </h1>
 
               {/* Subtitle */}
@@ -137,7 +137,7 @@ export default function HomePage() {
               >
                 <Image
                   src="/images/1.png"
-                  alt="Welcome to YCC76 - Aerial View of Crescent Town Buildings"
+                  alt="Welcome to YCC 76 - Aerial View of Crescent Town Buildings"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"

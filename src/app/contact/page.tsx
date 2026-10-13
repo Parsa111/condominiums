@@ -48,7 +48,7 @@
 // 
 //     const payload = {
 //       access_key: WEB3FORMS_KEY,
-//       subject: `[YCC76 Contact] ${formData.subject}`,
+//       subject: `[YCC 76 Contact] ${formData.subject}`,
 //       from_name: formData.name,
 //       name: formData.name,
 //       email: formData.email,
@@ -184,7 +184,7 @@
 //                       Main Office
 //                     </span>
 //                     <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--text-main)", marginTop: "4px" }}>
-//                       YCC76 Management Office
+//                       YCC 76 Management Office
 //                     </h3>
 //                   </div>
 //                 </div>

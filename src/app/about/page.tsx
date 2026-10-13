@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BookOpen } from "lucide-react";
 
 export const metadata = {
-  title: "About Us | YCC76 Crescent Town",
+  title: "About Us | YCC 76 Crescent Town",
   description:
     "Learn about the rich history and heritage of Crescent Town and York Condominium Corporation No. 76.",
 };
@@ -120,7 +120,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/images/3.png"
-                alt="Crescent Town YCC76 community"
+                alt="Crescent Town YCC 76 community"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
